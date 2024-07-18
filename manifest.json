@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Restore Redbrick Image on DCU Loop",
+  "version": "1.0",
+  "author": "CheeseLad",
+
+  "description": "This extension will restore the background image containing the laptop with the Redbrick stickers on the DCU Loop website.",
+
+  "icons": {
+    "48": "icons/border-48.png",
+    "96": "icons/border-96.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["loop-redbrick-image-restore.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    "images/loop-background-image-2023.jpg"
+  ]
+}
